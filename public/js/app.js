@@ -1386,3 +1386,22 @@ async function init(){
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// Subscribe to new messages
+State.supabase
+  .channel('messages')
+  .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, payload => {
+    const msg = payload.new;
+    if (msg.match_id === State.currentConvo) {
+      // Append message to chat
+      const box = document.getElementById('chatMsgs');
+      if (box) {
+        const d = document.createElement('div');
+        d.className = 'msg theirs';
+        d.innerHTML = `<div class="msg-bub">${esc(msg.text)}</div><div class="msg-time">now</div>`;
+        box.appendChild(d);
+        scrollChat();
+      }
+    }
+  })
+  .subscribe();
