@@ -25,8 +25,8 @@ const ADMIN_PASS = process.env.ADMIN_PASS || 'nexus_admin_2025';
 const PUBLIC     = path.join(__dirname, 'public');
 
 // Supabase config — set via env vars
-const SUPABASE_URL         = process.env.SUPABASE_URL || '';
-const SUPABASE_ANON_KEY    = process.env.SUPABASE_ANON_KEY || '';
+const SUPABASE_URL         = process.env.SUPABASE_URL || 'https://nfidgwvprtgnwclejuop.supabase.co ';
+const SUPABASE_ANON_KEY    = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5maWRnd3ZwcnRnbndjbGVqdW9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1MDI5MTksImV4cCI6MjA4OTA3ODkxOX0.nFeI4NEL_rLQ1N4XxMIoUbIMSzf5GN2bBBhhBq7srvw';
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || SUPABASE_ANON_KEY;
 
 const SUPABASE_ENABLED = !!(SUPABASE_URL && SUPABASE_ANON_KEY);
